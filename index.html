@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>الدكتورة مروة رياض الحكيم | طب وجراحة الفم والأسنان</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #6A3B48; /* اللون الماروني/البيرغندي للهوية البصرية */
+            --text-main: #FDFBF7; /* كتابة بيضاء لتباين عالي مع الخلفية الداكنة */
+            --text-sub: #D1C7BD; /* رمادي بيج ناعم للعنوان الفرعي */
+            --gold-accent: #C5A059; /* لون ذهبي راقي مطابق للوجو */
+            --gold-glow: rgba(197, 160, 89, 0.35);
+            --gold-border: rgba(197, 160, 89, 0.25);
+            
+            --fb-color: #1877f2;
+            --ig-color: #e4405f;
+            --wa-color: #25d366;
+            --map-color: #ea4335;
+            
+            --glass-bg: rgba(255, 255, 255, 0.03); /* زجاج بلوري داكن */
+            --glass-border: rgba(197, 160, 89, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #7A4251 0%, #4D2631 50%, #30161E 100%);
+            min-height: 100vh;
+            color: var(--text-main);
+            padding: 24px 16px;
+            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* 🦷 الخلفية التفاعلية: أسنان متحركة وجزيئات ذهبية تطفو وتدور ببطء */
+        .interactive-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        /* كرة الإضاءة التي تتبع حركة الماوس بلون ذهبي دافئ خافت */
+        .glow-blob {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.07) 0%, rgba(255, 255, 255, 0) 70%);
+            filter: blur(60px);
+            transform: translate(-50%, -50%);
+            transition: left 0.18s ease-out, top 0.18s ease-out;
+            left: 50%;
+            top: 50%;
+        }
+
+        /* خطوط منحنية طبية ذهبية أنيقة */
+        .bg-curve {
+            position: absolute;
+            width: 650px;
+            height: 650px;
+            border-radius: 40% 60% 45% 55% / 50% 45% 55% 50%;
+            border: 1.5px solid rgba(197, 160, 89, 0.05);
+            top: -120px;
+            right: -250px;
+            animation: rotate-curve 40s infinite linear;
+        }
+
+        .bg-curve-2 {
+            position: absolute;
+            width: 550px;
+            height: 550px;
+            border-radius: 50% 50% 45% 55% / 45% 55% 45% 55%;
+            border: 1px solid rgba(197, 160, 89, 0.03);
+            bottom: -150px;
+            left: -150px;
+            animation: rotate-curve 30s infinite linear reverse;
+        }
+
+        @keyframes rotate-curve {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* حاوية الأسنان المتطايرة */
+        .sparkles-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .tooth-particle {
+            position: absolute;
+            color: rgba(197, 160, 89, 0.08); /* لون ذهبي للسن الطائر */
+            filter: drop-shadow(0 2px 5px rgba(197, 160, 89, 0.1));
+            animation: float-tooth 16s infinite linear;
+        }
+
+        .sp1 { left: 8%; font-size: 28px; animation-delay: 0s; }
+        .sp2 { right: 10%; font-size: 34px; animation-delay: 3s; }
+        .sp3 { left: 55%; bottom: 15%; font-size: 24px; animation-delay: 6s; }
+        .sp4 { right: 40%; top: 60%; font-size: 30px; animation-delay: 9s; }
+        .sp5 { left: 25%; top: 40%; font-size: 22px; animation-delay: 12s; }
+
+        @keyframes float-tooth {
+            0% { transform: translateY(105vh) rotate(0deg) scale(0.8); opacity: 0; }
+            10% { opacity: 0.7; }
+            95% { opacity: 0.7; }
+            100% { transform: translateY(-10vh) rotate(360deg) scale(1.2); opacity: 0; }
+        }
+
+        /* حاوية التصميم الداخلي للجوال */
+        .dashboard-container {
+            width: 100%;
+            max-width: 430px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 1;
+        }
+
+        /* 💎 كارت الهيدر الفاخر */
+        .brand-header {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 35px;
+            padding: 35px 24px;
+            text-align: center;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* خط مذهب يمتد أعلى الكارت */
+        .brand-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+        }
+
+        /* مؤشر حالة العيادة مذهب */
+        .live-status {
+            background: rgba(197, 160, 89, 0.08);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            color: var(--gold-accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.74rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--gold-accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--gold-accent);
+            animation: pulse-dot 1.8s infinite ease-in-out;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.4; }
+        }
+
+        /* حاوية اللوجو الفعلي المذهب */
+        .brand-logo-container {
+            width: 130px;
+            height: 130px;
+            border-radius: 28px;
+            border: 2px solid var(--gold-accent);
+            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #6A3B48; /* ليتطابق مع خلفية صورة اللوجو */
+        }
+
+        .brand-logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .brand-logo-container:hover {
+            transform: scale(1.08) rotate(3deg);
+            box-shadow: 0 15px 30px rgba(197, 160, 89, 0.4);
+        }
+
+        .brand-header h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-header .slogan {
+            color: var(--gold-accent);
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .brand-header .sub-slogan {
+            color: var(--text-sub);
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        /* زر نسخ رقم العيادة مذهب */
+        .copy-phone-btn {
+            background: rgba(197, 160, 89, 0.05);
+            border: 1.5px solid var(--gold-accent);
+            color: var(--gold-accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 16px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .copy-phone-btn:hover {
+            background: var(--gold-accent);
+            color: #4D2631;
+            box-shadow: 0 8px 16px rgba(197, 160, 89, 0.3);
+        }
+
+        /* 💎 كروت قنوات العيادة الزجاجية المذهبة */
+        .dynamic-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .hub-card {
+            background: var(--glass-bg);
+            border: 1.5px solid var(--glass-border);
+            border-radius: 26px;
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .hub-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.8s ease;
+        }
+
+        .hub-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .hub-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--gold-accent);
+            box-shadow: 0 15px 30px rgba(197, 160, 89, 0.15);
+        }
+
+        .hub-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        /* الأيقونات الدائرية المذهبة */
+        .hub-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .wa-icon { color: var(--wa-color); }
+        .ig-icon { color: var(--ig-color); }
+        .fb-icon { color: var(--fb-color); }
+        .map-icon { color: var(--gold-accent); }
+
+        .hub-card:hover .hub-icon {
+            transform: scale(1.08) rotate(-8deg);
+            border-color: var(--gold-accent);
+            box-shadow: 0 8px 16px rgba(197, 160, 89, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hub-info h2 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .hub-info p {
+            font-size: 0.76rem;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        /* سهم مذهب راقي */
+        .arrow-glow {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-accent);
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .hub-card:hover .arrow-glow {
+            transform: translateX(-4px);
+            background: var(--gold-accent);
+            color: #4D2631;
+            border-color: var(--gold-accent);
+            box-shadow: 0 5px 12px rgba(197, 160, 89, 0.3);
+        }
+
+        /* 🔔 التنبيه العائم المذهب (Toast) */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translate(-50%, 50px);
+            background: rgba(106, 60, 74, 0.95);
+            border: 1.5px solid var(--gold-accent);
+            color: var(--text-main);
+            padding: 12px 28px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 99;
+            box-shadow: 0 15px 35px rgba(197, 160, 89, 0.25);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .toast-notification i {
+            color: var(--gold-accent);
+            margin-left: 6px;
+        }
+
+        .toast-notification.show {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        /* حقوق النهاية */
+        .dashboard-footer {
+            text-align: center;
+            font-size: 0.72rem;
+            color: var(--text-sub);
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .dashboard-footer span {
+            color: var(--gold-accent);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+<!-- الخلفية المذهبة التفاعلية -->
+<div class="interactive-bg">
+    <div id="pointer-blob" class="glow-blob"></div>
+    <div class="bg-curve"></div>
+    <div class="bg-curve-2"></div>
+    
+    <!-- 🦷 الأسنان المتحركة المتطايرة بالخلفية -->
+    <div class="sparkles-container">
+        <i class="fa-solid fa-tooth tooth-particle sp1"></i>
+        <i class="fa-solid fa-tooth tooth-particle sp2"></i>
+        <i class="fa-solid fa-tooth tooth-particle sp3"></i>
+        <i class="fa-solid fa-tooth tooth-particle sp4"></i>
+        <i class="fa-solid fa-tooth tooth-particle sp5"></i>
+    </div>
+</div>
+
+<div class="dashboard-container">
+    
+    <!-- 💎 كارت العلامة التجارية والدعم -->
+    <header class="brand-header">
+        <div class="live-status">
+            <span class="status-dot"></span>
+            العيادة مفتوحة وتستقبل الحجوزات الآن
+        </div>
+        
+        <!-- اللوجو الفعلي للدكتورة مروة -->
+        <div class="brand-logo-container">
+            <img src="logo.jpg" alt="شعار عيادة الدكتورة مروة رياض الحكيم">
+        </div>
+        
+        <h1>الدكتورة مروة رياض الحكيم</h1>
+        <p class="slogan">أخصائية طب وجراحة الفم والأسنان</p>
+        <p class="sub-slogan">ابتسامتك هي هويتنا ✨</p>
+        
+        <!-- زر النسخ السريع للهاتف -->
+        <button class="copy-phone-btn" onclick="copyNumber()">
+            <i class="far fa-copy"></i>
+            <span>نسخ رقم الحجز المباشر</span>
+        </button>
+    </header>
+
+    <!-- 💎 كروت التواصل الثلاثة المذهبة -->
+    <main class="dynamic-grid">
+        
+        <!-- الواتساب (حجز موعد طبي) -->
+        <div class="hub-card card-whatsapp" onclick="openWhatsApp()">
+            <div class="hub-left">
+                <div class="hub-icon">
+                    <i class="fab fa-whatsapp wa-icon"></i>
+                </div>
+                <div class="hub-info">
+                    <h2>حجز موعد طبي مباشر</h2>
+                    <p>تواصل مع سكرتارية العيادة لتثبيت موعد الفحص</p>
+                </div>
+            </div>
+            <div class="arrow-glow">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+        </div>
+
+        <!-- الإنستغرام (تصفح الحالات وصور قبل وبعد) -->
+        <div class="hub-card card-instagram" onclick="openInstagram()">
+            <div class="hub-left">
+                <div class="hub-icon">
+                    <i class="fab fa-instagram ig-icon"></i>
+                </div>
+                <div class="hub-info">
+                    <h2>حساب إنستغرام العيادة</h2>
+                    <p>تصفح حالات تجميل وابتسامات مرضانا قبل وبعد</p>
+                </div>
+            </div>
+            <div class="arrow-glow">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+        </div>
+
+        <!-- الفيسبوك (أخبار ونصائح وعروض العيادة) -->
+        <div class="hub-card card-facebook" onclick="openFacebook()">
+            <div class="hub-left">
+                <div class="hub-icon">
+                    <i class="fab fa-facebook-f fb-icon"></i>
+                </div>
+                <div class="hub-info">
+                    <h2>صفحة فيسبوك العيادة</h2>
+                    <p>تابع أهم نصائح العناية بالأسنان وعروض العيادة</p>
+                </div>
+            </div>
+            <div class="arrow-glow">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+        </div>
+
+        <!-- موقع العيادة الجغرافي (خرائط جوجل) -->
+        <div class="hub-card card-location" onclick="openLocation()">
+            <div class="hub-left">
+                <div class="hub-icon">
+                    <i class="fa-solid fa-map-location-dot map-icon"></i>
+                </div>
+                <div class="hub-info">
+                    <h2>موقع العيادة الجغرافي</h2>
+                    <p>اضغط لتحديد اتجاه السير والوصول للعيادة عبر خرائط جوجل</p>
+                </div>
+            </div>
+            <div class="arrow-glow">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- حقوق النهاية -->
+    <footer class="dashboard-footer">
+        <span>عيادة الدكتورة مروة رياض الحكيم</span>
+        <p>أحدث التقنيات وأفضل الأجهزة الطبية لرعايتكم 🦷</p>
+    </footer>
+</div>
+
+<!-- التنبيه العائم للنسخ الناجح -->
+<div id="toast" class="toast-notification">
+    <i class="fas fa-check-circle"></i> تم نسخ رقم العيادة بنجاح!
+</div>
+
+<script>
+    // ==========================================
+    // 🔗 قسم إعداد الحسابات والروابط للعيادة
+    // ==========================================
+    const CONFIG = {
+        whatsappNumber: '9647890004851', // رقم هاتف العيادة بالصيغة الدولية للحجز
+        whatsappMessage: 'مرحباً دكتورة مروة، أرغب بالاستفسار وحجز موعد للفحص والاستشارة في العيادة.',
+        
+        facebookUrl: 'https://www.facebook.com/profile.php?id=61593321788108&mibextid=wwXIfr&rdid=Ty2LqgJ3BjWTeT5H&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1D1bzg6E9S%2F%3Fmibextid%3DwwXIfr', // رابط صفحة الفيسبوك للعيادة
+        instagramUrl: 'https://www.instagram.com/dr_marwa.clinic?igsh=MWx3NDBsMDBlbGhoNg%3D%3D&igsi=MWx3NDBsMDBlbGhoNg%3D%3D', // رابط حساب الإنستغرام للعيادة
+        locationUrl: 'https://maps.apple.com/place?coordinate=32.004961,44.348678&name=%D9%85%D9%88%D9%82%D8%B9%20%D8%BA%D9%8A%D8%B1%20%D9%85%D8%B9%D8%B1%D9%88%D9%81&map=explore' // رابط موقع العيادة الجغرافي
+    };
+
+    // ==========================================
+    // ⚙️ منطق العمل التفاعلي والديناميكي للموقع
+    // ==========================================
+    
+    // دوال فتح الحسابات
+    function openFacebook() {
+        window.open(CONFIG.facebookUrl, '_blank');
+    }
+    
+    function openInstagram() {
+        window.open(CONFIG.instagramUrl, '_blank');
+    }
+    
+    function openWhatsApp() {
+        const messageText = encodeURIComponent(CONFIG.whatsappMessage);
+        window.open(`https://wa.me/${CONFIG.whatsappNumber}?text=${messageText}`, '_blank');
+    }
+
+    // دالة فتح الموقع
+    function openLocation() {
+        window.open(CONFIG.locationUrl, '_blank');
+    }
+
+    // دالة نسخ الرقم وعرض الإشعار المنبثق التفاعلي
+    function copyNumber() {
+        const tempInput = document.createElement('input');
+        tempInput.value = CONFIG.whatsappNumber;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        
+        // عرض التنبيه بشكل ديناميكي
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 2500);
+    }
+
+    // 🟢 منطق حركة كرة الإضاءة الملونة المتفاعلة مع الماوس/اللمس
+    const blob = document.getElementById('pointer-blob');
+    
+    // للكمبيوتر (حركة الفأرة)
+    window.addEventListener('mousemove', (e) => {
+        blob.style.left = e.clientX + 'px';
+        blob.style.top = e.clientY + 'px';
+    });
+
+    // للجوال (حركة اللمس على الشاشة)
+    window.addEventListener('touchmove', (e) => {
+        if(e.touches.length > 0) {
+            blob.style.left = e.touches[0].clientX + 'px';
+            blob.style.top = e.touches[0].clientY + 'px';
+        }
+    }, { passive: true });
+
+    // تأثيرات الدخول وتفاعل اللمس المحسّن
+    window.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('.hub-card, .copy-phone-btn');
+        cards.forEach(card => {
+            card.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.96)';
+            }, { passive: true });
+            
+            card.addEventListener('touchend', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // تأثيرات ظهور تدريجي ناعم
+        const anims = document.querySelectorAll('.brand-header, .hub-card, .dashboard-footer');
+        anims.forEach((el, idx) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                el.style.transition = 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, idx * 100);
+        });
+        
+        console.log('🩺 تم تطبيق الهوية البصرية الفخمة لعيادة الدكتورة مروة بنجاح!');
+    });
+</script>
+</body>
+</html>
